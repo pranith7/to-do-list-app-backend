@@ -1,13 +1,22 @@
 import mongoose from "mongoose";
-// import { DB_NAME } from '../constant';
+
+let isConnected = false;
 
 const ConnectDB = async () => {
+    if (isConnected) {
+        console.log("=> using existing database connection");
+        return;
+    }
+
     try{
-        const connectionInstance = await mongoose.connect(`${process.env.MONGODB_CLOUD_URI}`);
+        const connectionInstance = await mongoose.connect(`${process.env.MONGODB_CLOUD_URI}`, {
+            // Optional: Add additional mongoose options here
+        });
+        isConnected = true;
         console.log(`MongoDB connected !! DB HOST: ${connectionInstance.connection.host}`);
-    }catch (error){
+    } catch (error){
         console.log("MONGODB connection Failed ", error);
-        process.exit(1);
+        throw error; // Throw error to let the serverless function handle it
     }
 };
 
