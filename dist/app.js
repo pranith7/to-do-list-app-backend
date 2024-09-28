@@ -10,7 +10,7 @@ const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const app = (0, express_1.default)();
 exports.app = app;
 app.use((0, cors_1.default)({
-    origin: "http://localhost:5173",
+    origin: "https://to-do-list-app-frontend.vercel.app",
     credentials: true
 }));
 app.use(express_1.default.json({ limit: "16kb" }));
