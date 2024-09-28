@@ -7,7 +7,7 @@
     "frontend-build": "cd ../client && npm install && npm run build",
     "backend-build": "tsc",
     "build": "npm run backend-build",
-    "start": "node api/index.ts",
+    "start": "node dist/index.js",
     "dev": "nodemon src/index.ts"
   },
   "keywords": [],
