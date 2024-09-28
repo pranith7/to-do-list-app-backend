@@ -17,6 +17,10 @@ app.use(express_1.default.json({ limit: "16kb" }));
 app.use(express_1.default.urlencoded({ extended: true, limit: "16kb" }));
 app.use(express_1.default.static("public"));
 app.use((0, cookie_parser_1.default)());
+// Root Route
+app.get('/', (_req, res) => {
+    res.send("Server is running fine");
+});
 // Routes
 const auth_route_1 = __importDefault(require("./routes/auth.route"));
 const task_route_1 = __importDefault(require("./routes/task.route"));
