@@ -5,7 +5,7 @@ import cookieparser from "cookie-parser";
 const app = express();
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://to-do-list-app-frontend.vercel.app",
     credentials: true
 }));
 
